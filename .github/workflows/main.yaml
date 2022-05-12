@@ -21,7 +21,8 @@ jobs:
           enable-stack: true
           stack-version: 'latest'
 
-      - uses: actions/cache@v2
+      - name: Cache Stack build artifacts
+        uses: actions/cache@v2
         with:
           path: |
             ~/.stack
@@ -38,7 +39,7 @@ jobs:
       #     done
 
       - name: Freeze Cabal plan
-        run: cabal freeze
+        run: cabal update && cabal freeze
 
       - name: Cache Cabal build artifacts
         uses: actions/cache@v2
