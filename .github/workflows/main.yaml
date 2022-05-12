@@ -18,6 +18,8 @@ jobs:
       - uses: haskell/actions/setup@v2.0.0
         with:
           ghc-version: ${{ matrix.ghc }}
+          enable-stack: true
+          stack-version: 'latest'
 
       - uses: actions/cache@v2
         with:
